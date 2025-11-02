@@ -27,7 +27,7 @@ jobs:
             cd /var/www/laravel
 
             echo 'Prepare Writeable Directory'
-            chown -R ubuntu:ubuntu storage bootstrap/cache
-            chmod -R 755 storage bootstrap/cache
+            sudo chown -R ubuntu:ubuntu storage bootstrap/cache
+            sudo chmod -R 755 storage bootstrap/cache
 
 
