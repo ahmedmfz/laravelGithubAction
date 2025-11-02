@@ -29,5 +29,5 @@ jobs:
 #         echo 'Prepare Writeable Directory'
 #         sudo chown -R ubuntu:ubuntu storage bootstrap/cache
 #         sudo chmod -R 755 storage bootstrap/cache
-
+         EOF
 
