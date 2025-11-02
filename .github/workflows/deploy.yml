@@ -11,23 +11,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: set up Ec2 Ssh Access
+      - name: Set up EC2 SSH access
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.LARAVEL_ACTION_PRIVATE }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.LARAVEL_ACTION_IP }}  >> ~/.ssh/known_hosts
+          ssh-keyscan -H ${{ secrets.LARAVEL_ACTION_IP }} >> ~/.ssh/known_hosts
 
-      - name: Deploy Laravel on Ec2
+      - name: Deploy Laravel on EC2
         run: |
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ubuntu@${{ secrets.LARAVEL_ACTION_IP }} << 'EOF'
-           set -e
+          set -e
 
-           echo 'Navigate to laravelfolder'
-#          cd /var/www/laravel
+          echo 'Navigate to laravel folder'
+          cd /var/www/laravel
 
-#          echo 'Prepare Writeable Directory'
-#          sudo chown -R ubuntu:ubuntu storage bootstrap/cache
-#          sudo chmod -R 755 storage bootstrap/cache
+          echo 'Prepare writable directories'
+          sudo chown -R ubuntu:ubuntu storage bootstrap/cache
+          sudo chmod -R 755 storage bootstrap/cache
           EOF
-
