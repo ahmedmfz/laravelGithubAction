@@ -19,8 +19,8 @@ jobs:
           ssh-keyscan -H ${{ secrets.LARAVEL_ACTION_IP }}  >> ~/.ssh/known_hosts
 
       - name: Deploy Laravel on Ec2
-        run:
-          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ubuntu@${{ secrets.LARAVEL_ACTION_IP }} << 'EOF'
+        run: |
+            ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ubuntu@${{ secrets.LARAVEL_ACTION_IP }} << 'EOF'
             set -e
 
             echo 'Navigate to laravelfolder'
