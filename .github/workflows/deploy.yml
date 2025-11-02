@@ -20,14 +20,14 @@ jobs:
 
       - name: Deploy Laravel on Ec2
         run: |
-            ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ubuntu@${{ secrets.LARAVEL_ACTION_IP }} << 'EOF'
-            set -e
+         ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ubuntu@${{ secrets.LARAVEL_ACTION_IP }} << 'EOF'
+         set -e
 
-            echo 'Navigate to laravelfolder'
-            cd /var/www/laravel
+         echo 'Navigate to laravelfolder'
+         cd /var/www/laravel
 
-            echo 'Prepare Writeable Directory'
-            sudo chown -R ubuntu:ubuntu storage bootstrap/cache
-            sudo chmod -R 755 storage bootstrap/cache
+#         echo 'Prepare Writeable Directory'
+#         sudo chown -R ubuntu:ubuntu storage bootstrap/cache
+#         sudo chmod -R 755 storage bootstrap/cache
 
 
