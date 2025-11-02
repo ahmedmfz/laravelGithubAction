@@ -24,7 +24,7 @@ jobs:
             set -e
 
             echo 'Navigate to laravel folder'
-            cd /var/www/laravel
+            cd /var/www/html
 
             echo 'Prepare writable directories'
             sudo chown -R ubuntu:ubuntu storage bootstrap/cache
